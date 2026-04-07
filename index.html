@@ -1,736 +1,183 @@
 <!doctype html>
-<html lang="en">
+<html lang="mn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Purev Bat-Erdene | Junior Full-Stack Developer</title>
-    <style>
-      :root {
-        --bg: #eef2f7;
-        --surface: #ffffff;
-        --surface-alt: #f8fafc;
-        --text: #0f172a;
-        --muted: #475569;
-        --line: #dbe2ea;
-        --line-strong: #cbd5e1;
-        --accent: #0f3d91;
-        --accent-soft: #e8f0ff;
-        --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        -webkit-text-size-adjust: 100%;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at top left, #ffffff 0, transparent 34%),
-          linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
-        line-height: 1.55;
-      }
-
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      address {
-        font-style: normal;
-      }
-
-      p,
-      h1,
-      h2,
-      h3,
-      ul {
-        margin-top: 0;
-      }
-
-      .page {
-        width: min(1100px, calc(100% - 32px));
-        margin: 36px auto;
-      }
-
-      .resume {
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        background: var(--surface);
-        box-shadow: var(--shadow);
-      }
-
-      .resume-header {
-        padding: 38px 40px 32px;
-        border-bottom: 1px solid var(--line);
-        background:
-          linear-gradient(135deg, rgba(15, 61, 145, 0.06), transparent 42%),
-          var(--surface);
-      }
-
-      .header-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 24px;
-        flex-wrap: wrap;
-      }
-
-      .name-block h1 {
-        margin-bottom: 8px;
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
-        line-height: 0.95;
-        letter-spacing: -0.05em;
-      }
-
-      .title {
-        margin-bottom: 12px;
-        color: var(--muted);
-        font-size: 1.05rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-      }
-
-      .availability {
-        display: inline-flex;
-        align-items: center;
-        min-height: 34px;
-        padding: 7px 12px;
-        border: 1px solid #bfd3ff;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-size: 0.88rem;
-        font-weight: 700;
-      }
-
-      .contact-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px 14px;
-        margin: 20px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .contact-list li {
-        padding: 8px 12px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: rgba(248, 250, 252, 0.9);
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .summary-block {
-        max-width: 64ch;
-        margin-top: 22px;
-      }
-
-      .summary-label,
-      .section-label {
-        margin-bottom: 10px;
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-      }
-
-      .summary-block p {
-        margin-bottom: 0;
-        color: #243247;
-        font-size: 1rem;
-      }
-
-      .content-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
-      }
-
-      .main-column {
-        padding: 32px 40px 40px;
-      }
-
-      .side-column {
-        padding: 32px 40px 40px;
-        border-left: 1px solid var(--line);
-        background: var(--surface-alt);
-      }
-
-      section + section {
-        margin-top: 32px;
-      }
-
-      .section-heading {
-        margin-bottom: 18px;
-        font-size: 0.9rem;
-        font-weight: 800;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: #334155;
-      }
-
-      .entry {
-        padding: 22px 22px 20px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: var(--surface);
-      }
-
-      .entry + .entry {
-        margin-top: 18px;
-      }
-
-      .entry-header {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-      }
-
-      .entry-title {
-        margin-bottom: 5px;
-        font-size: 1.08rem;
-      }
-
-      .entry-subtitle {
-        color: var(--muted);
-        font-size: 0.95rem;
-        font-weight: 600;
-      }
-
-      .entry-date {
-        white-space: nowrap;
-        color: var(--muted);
-        font-size: 0.9rem;
-        font-weight: 700;
-      }
-
-      .entry-description,
-      .entry-stack {
-        margin-bottom: 12px;
-        color: #334155;
-        font-size: 0.95rem;
-      }
-
-      .entry-stack strong {
-        color: var(--text);
-      }
-
-      .bullet-list {
-        margin: 0;
-        padding-left: 18px;
-      }
-
-      .bullet-list li + li {
-        margin-top: 8px;
-      }
-
-      .skill-group + .skill-group,
-      .mini-section + .mini-section {
-        margin-top: 18px;
-      }
-
-      .skill-group h3,
-      .mini-title {
-        margin-bottom: 8px;
-        font-size: 0.95rem;
-      }
-
-      .skill-group p,
-      .mini-copy {
-        margin-bottom: 0;
-        color: #334155;
-        font-size: 0.95rem;
-      }
-
-      .mini-card {
-        padding: 18px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: var(--surface);
-      }
-
-      .mini-card + .mini-card {
-        margin-top: 14px;
-      }
-
-      .school {
-        margin-bottom: 6px;
-        font-size: 1rem;
-      }
-
-      .education-meta,
-      .muted {
-        color: var(--muted);
-      }
-
-      .plain-list {
-        margin: 10px 0 0;
-        padding-left: 18px;
-      }
-
-      .plain-list li + li {
-        margin-top: 6px;
-      }
-
-      @media (max-width: 920px) {
-        .content-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .side-column {
-          border-top: 1px solid var(--line);
-          border-left: 0;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .page {
-          width: min(100%, calc(100% - 20px));
-          margin: 10px auto;
-        }
-
-        .resume {
-          border-radius: 18px;
-        }
-
-        .resume-header,
-        .main-column,
-        .side-column {
-          padding-right: 20px;
-          padding-left: 20px;
-        }
-
-        .resume-header {
-          padding-top: 28px;
-          padding-bottom: 24px;
-        }
-
-        .main-column,
-        .side-column {
-          padding-top: 24px;
-          padding-bottom: 28px;
-        }
-
-        .contact-list {
-          gap: 8px;
-        }
-
-        .contact-list li {
-          width: 100%;
-          border-radius: 14px;
-        }
-
-        .entry {
-          padding: 18px;
-        }
-
-        .entry-date {
-          white-space: normal;
-        }
-      }
-
-      @media print {
-        body {
-          background: #ffffff;
-        }
-
-        .page {
-          width: 100%;
-          margin: 0;
-        }
-
-        .resume {
-          border: 0;
-          border-radius: 0;
-          box-shadow: none;
-        }
-
-        .resume-header,
-        .side-column {
-          background: #ffffff;
-        }
-
-        .entry,
-        .mini-card,
-        section {
-          break-inside: avoid;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-      }
-    </style>
+    <title>René Delescen – Junior Software Engineer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <div class="page">
-      <div class="resume">
-        <header class="resume-header">
-          <div class="header-top">
-            <div class="name-block">
-              <h1>Purev Bat-Erdene</h1>
-              <div class="title">Junior Full-Stack Developer</div>
-              <div class="availability">
-                Open to 2026 internships and junior software engineering roles
-              </div>
+      <!-- HEADER -->
+      <div class="header">
+        <div class="name-block">
+          <h1>Purev-Erdene</h1>
+          <div class="title">Software Engineer</div>
+        </div>
+        <div style="flex: 1">
+          <div class="contact-grid">
+            <span>📍 Ulaanbaatar, Mongolia</span>
+            <span
+              ><a href="https://linkedin.com/in/rene-delescen"
+                >linkedin.com/in/rene-delescen</a
+              ></span
+            >
+            <span>📞 +(976) 99830623</span>
+            <span
+              ><a href="https://delescen.com">Delescen.com (portfolio)</a></span
+            >
+            <span>✉️ pureverdenej93@gmail.com</span>
+            <span>🎂 09-05-2005</span>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- SUMMARY -->
+      <p class="summary">
+        Junior Software Engineer with a strong foundation in full-stack web
+        development and a passion for building clean, scalable applications.
+        Experienced in JavaScript, React, and Node.js, with hands-on project
+        experience in RESTful API design and database management. Eager to
+        contribute to collaborative engineering teams and grow through
+        real-world problem solving.
+      </p>
+
+      <!-- WORK EXPERIENCE -->
+      <div class="section">
+        <div class="section-title">Experience</div>
+        <hr />
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-left">
+              <strong>agentbuy.mn</strong> |
+              <span class="role">Backend Developer</span>
             </div>
-
-            <address aria-label="Contact details">
-              <ul class="contact-list">
-                <li>
-                  <a href="mailto:purev.dev@gmail.com">purev.dev@gmail.com</a>
-                </li>
-                <li><a href="tel:+97699112233">+976 9911 2233</a></li>
-                <li>Ulaanbaatar, Mongolia</li>
-                <li>
-                  <a href="https://github.com/purev">github.com/purev</a>
-                </li>
-                <li>
-                  <a href="https://portfolio.purev.dev">portfolio.purev.dev</a>
-                </li>
-                <li>
-                  <a href="https://linkedin.com/in/purev"
-                    >linkedin.com/in/purev</a
-                  >
-                </li>
-              </ul>
-            </address>
+            <!-- <div class="entry-right">New York, USA | 01.2026 – Current</div> -->
           </div>
+          <ul class="bullets">
+            <li>
+              Developed and maintained front-end features using React and
+              TypeScript, improving page load speed by 25%
+            </li>
+            <li>
+              Built and documented RESTful APIs with Node.js and Express,
+              serving over 10K daily active users
+            </li>
+            <li>
+              Collaborated with senior engineers in agile sprints to deliver 3
+              major product releases on schedule
+            </li>
+          </ul>
+        </div>
 
-          <div class="summary-block">
-            <div class="summary-label">Professional Summary</div>
-            <p>
-              Junior full-stack developer with hands-on experience building and
-              deploying web applications with React, TypeScript, Node.js, and
-              PostgreSQL or MongoDB. Delivered portfolio-grade projects with
-              authentication, payments, dashboards, and real-time collaboration,
-              with clear ownership across UI implementation, API design, data
-              modeling, and deployment. Prepared to contribute quickly in
-              internship and early-career engineering environments where
-              shipping reliable features matters.
-            </p>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-left">
+              <strong>Employee Benefits Management System</strong> |
+              <span class="role">Full-Stack Developer</span>
+            </div>
+            <!-- <div class="entry-right">Remote | 01.2025 – 01.2026</div> -->
           </div>
-        </header>
+          <ul class="bullets">
+            <li>
+              Designed and deployed full-stack web applications for 8 small
+              business clients using React, Node.js, and PostgreSQL
+            </li>
+            <li>
+              Integrated third-party APIs (payment gateways, maps, email)
+              reducing client operational overhead by 30%
+            </li>
+            <li>
+              Managed version control workflows with Git and delivered projects
+              with a 100% on-time rate
+            </li>
+          </ul>
+        </div>
 
-        <main class="content-grid">
-          <div class="main-column">
-            <section aria-labelledby="projects-title">
-              <h2 class="section-heading" id="projects-title">Projects</h2>
-
-              <article class="entry">
-                <div class="entry-header">
-                  <div>
-                    <h3 class="entry-title">TaskFlow</h3>
-                    <div class="entry-subtitle">
-                      Real-time task collaboration platform for small teams
-                    </div>
-                  </div>
-                  <div class="entry-date">2025</div>
-                </div>
-                <p class="entry-stack">
-                  <strong>Tech Stack:</strong> React, TypeScript, Node.js,
-                  Express, Socket.IO, PostgreSQL, Prisma
-                </p>
-                <p class="entry-description">
-                  Built a multi-user productivity app focused on live updates,
-                  clear task ownership, and practical team workflows.
-                </p>
-                <ul class="bullet-list">
-                  <li>
-                    Implemented a Kanban-style workspace with task creation,
-                    assignment, due dates, comments, and status tracking across
-                    multiple boards.
-                  </li>
-                  <li>
-                    Designed REST endpoints and Socket.IO events for task CRUD,
-                    activity history, and live collaboration, backed by a
-                    normalized PostgreSQL schema with Prisma migrations.
-                  </li>
-                  <li>
-                    Added JWT authentication, role-based permissions, and
-                    optimistic UI updates to keep team actions responsive while
-                    protecting workspace data.
-                  </li>
-                  <li>
-                    Shipped an MVP used in campus testing by more than 80 users
-                    and refined the workflow based on feedback about task status
-                    visibility and notification timing.
-                  </li>
-                </ul>
-              </article>
-
-              <article class="entry">
-                <div class="entry-header">
-                  <div>
-                    <h3 class="entry-title">CommerceHub</h3>
-                    <div class="entry-subtitle">
-                      Full-stack e-commerce storefront and admin dashboard
-                    </div>
-                  </div>
-                  <div class="entry-date">2025</div>
-                </div>
-                <p class="entry-stack">
-                  <strong>Tech Stack:</strong> Next.js, TypeScript, Node.js,
-                  Express, MongoDB, Stripe
-                </p>
-                <p class="entry-description">
-                  Developed a production-style commerce application covering
-                  both customer checkout flows and internal product management.
-                </p>
-                <ul class="bullet-list">
-                  <li>
-                    Delivered product listing, detail, cart, checkout, and admin
-                    inventory screens with reusable TypeScript components and
-                    mobile-friendly layouts.
-                  </li>
-                  <li>
-                    Built REST APIs for products, orders, users, and
-                    authentication, including input validation, protected admin
-                    routes, and JWT-based session handling.
-                  </li>
-                  <li>
-                    Integrated Stripe Checkout and webhook processing to persist
-                    payment status changes and keep order records in sync with
-                    completed transactions.
-                  </li>
-                  <li>
-                    Improved page responsiveness with paginated product loading,
-                    query caching, and asset optimization, helping core pages
-                    score above 90 in Lighthouse performance checks.
-                  </li>
-                </ul>
-              </article>
-
-              <article class="entry">
-                <div class="entry-header">
-                  <div>
-                    <h3 class="entry-title">FinTrack</h3>
-                    <div class="entry-subtitle">
-                      Personal finance dashboard for budgeting and spending
-                      analysis
-                    </div>
-                  </div>
-                  <div class="entry-date">2024</div>
-                </div>
-                <p class="entry-stack">
-                  <strong>Tech Stack:</strong> Next.js, TypeScript, Node.js,
-                  PostgreSQL, Prisma, Recharts, Docker
-                </p>
-                <p class="entry-description">
-                  Created a finance dashboard that helps users organize
-                  transactions and review budget performance over time.
-                </p>
-                <ul class="bullet-list">
-                  <li>
-                    Implemented transaction import, category tagging, monthly
-                    budget summaries, and interactive charts for spending and
-                    income trends.
-                  </li>
-                  <li>
-                    Modeled relational data for accounts, transactions,
-                    categories, and recurring expenses, then built server-side
-                    logic for monthly rollups and reporting views.
-                  </li>
-                  <li>
-                    Added rate limiting, request validation, and structured
-                    transaction history to make CRUD flows safer and easier to
-                    trace during testing.
-                  </li>
-                  <li>
-                    Packaged the application with Docker and deployed it to
-                    Render for portfolio review, making it easy to demo the
-                    product with seeded sample data.
-                  </li>
-                </ul>
-              </article>
-            </section>
-
-            <section aria-labelledby="experience-title">
-              <h2 class="section-heading" id="experience-title">Experience</h2>
-
-              <article class="entry">
-                <div class="entry-header">
-                  <div>
-                    <h3 class="entry-title">Freelance Full-Stack Developer</h3>
-                    <div class="entry-subtitle">Self-Employed</div>
-                  </div>
-                  <div class="entry-date">Jun 2024 - Present</div>
-                </div>
-                <ul class="bullet-list">
-                  <li>
-                    Built websites, booking flows, and lightweight admin tools
-                    for three local clients using React, Next.js, Node.js, and
-                    REST APIs.
-                  </li>
-                  <li>
-                    Converted Figma concepts into responsive user interfaces and
-                    connected forms to backend workflows, email notifications,
-                    and content management requirements.
-                  </li>
-                  <li>
-                    Handled repository setup, deployment, release fixes, and
-                    small iterative enhancements with GitHub, Vercel, Render,
-                    and Postman.
-                  </li>
-                  <li>
-                    Structured delivery into weekly milestones with working
-                    demos so clients could review features early and reduce
-                    late-stage revisions.
-                  </li>
-                </ul>
-              </article>
-
-              <article class="entry">
-                <div class="entry-header">
-                  <div>
-                    <h3 class="entry-title">
-                      Teaching Assistant, Intro to Web Development
-                    </h3>
-                    <div class="entry-subtitle">
-                      National University of Mongolia
-                    </div>
-                  </div>
-                  <div class="entry-date">Sep 2025 - Dec 2025</div>
-                </div>
-                <ul class="bullet-list">
-                  <li>
-                    Supported lab sessions covering HTML, CSS, JavaScript, and
-                    React fundamentals for first-year computer science students.
-                  </li>
-                  <li>
-                    Debugged student assignments, explained DOM and API
-                    concepts, and wrote small reference examples for common
-                    frontend implementation issues.
-                  </li>
-                  <li>
-                    Reviewed code for structure, naming, and basic
-                    accessibility, helping students move from tutorial-based
-                    code to independent project work.
-                  </li>
-                </ul>
-              </article>
-            </section>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-left">
+              <strong>AI Quiz Generator</strong> |
+              <span class="role">Full-Stack Developer</span>
+            </div>
+            <!-- <div class="entry-right">New York, USA | 01.2024 – 01.2025</div> -->
           </div>
+          <ul class="bullets">
+            <li>
+              Automated data reporting workflows with Python scripts, saving the
+              team 5+ hours per week
+            </li>
+            <li>
+              Assisted in migrating legacy internal tools to a modern
+              React-based dashboard
+            </li>
+            <li>
+              Resolved 100+ bug tickets and contributed to code reviews within a
+              team of 6 developers
+            </li>
+          </ul>
+        </div>
+      </div>
 
-          <aside class="side-column">
-            <section aria-labelledby="skills-title">
-              <h2 class="section-heading" id="skills-title">
-                Technical Skills
-              </h2>
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-title">Skills</div>
+        <hr />
+        <div class="skills-text">
+          <span class="highlight">JavaScript (ES6+)</span> •
+          <span class="highlight">TypeScript</span> •
+          <span class="highlight">React</span> •
+          <span class="highlight">Node.js</span> •
+          <span class="highlight">Python</span> • HTML &amp; CSS • SQL &amp;
+          PostgreSQL • <span class="highlight">Git &amp; GitHub</span> • REST
+          APIs • Docker (basics) • <span class="faded">AWS (basics)</span> •
+          <span class="faded">GraphQL</span> •
+          <span class="faded">C &amp; C++</span> • Figma • Notion • Agile /
+          Scrum |
+          <span class="note">■ Professional proficiency or above</span>
+        </div>
+      </div>
 
-              <div class="mini-card">
-                <div class="skill-group">
-                  <h3>Frontend</h3>
-                  <p>
-                    React, Next.js, TypeScript, JavaScript, HTML5, CSS3,
-                    Tailwind CSS, responsive UI development
-                  </p>
-                </div>
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-title">Education</div>
+        <hr />
 
-                <div class="skill-group">
-                  <h3>Backend</h3>
-                  <p>
-                    Node.js, Express.js, REST APIs, GraphQL, JWT authentication,
-                    request validation
-                  </p>
-                </div>
+        <div class="edu-entry">
+          <div class="entry-header">
+            <div class="entry-left">
+              <strong>University Name</strong> | B.Sc. Computer Science
+            </div>
+            <div class="entry-right">City, State | 01.2019 – 01.2023</div>
+          </div>
+          <div class="edu-note">
+            Relevant coursework: Data Structures, Algorithms, Operating Systems,
+            Web Development, Databases • GPA: 3.7 • Dean's List 2021–2023 •
+            Senior capstone: full-stack task management app
+          </div>
+        </div>
+      </div>
 
-                <div class="skill-group">
-                  <h3>Database</h3>
-                  <p>
-                    PostgreSQL, MongoDB, Prisma ORM, relational data modeling,
-                    query optimization basics
-                  </p>
-                </div>
-
-                <div class="skill-group">
-                  <h3>Tools</h3>
-                  <p>
-                    Git, GitHub, Postman, Docker, Vercel, Render, Figma, VS Code
-                  </p>
-                </div>
-
-                <div class="skill-group">
-                  <h3>Other</h3>
-                  <p>
-                    Socket.IO, Stripe, Recharts, CI/CD workflows, deployment,
-                    API integration
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section aria-labelledby="education-title">
-              <h2 class="section-heading" id="education-title">Education</h2>
-
-              <div class="mini-card">
-                <h3 class="school">National University of Mongolia</h3>
-                <p class="education-meta">
-                  B.S. in Computer Science
-                  <br />
-                  Expected May 2026
-                </p>
-                <div class="mini-section">
-                  <div class="mini-title">Relevant Coursework</div>
-                  <p class="mini-copy">
-                    Data Structures and Algorithms, Database Systems, Web
-                    Development, Software Engineering, Computer Networks
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section aria-labelledby="achievements-title">
-              <h2 class="section-heading" id="achievements-title">
-                Highlights
-              </h2>
-
-              <div class="mini-card">
-                <ul class="plain-list">
-                  <li>
-                    Built and deployed three portfolio-grade full-stack projects
-                    with live demos and documented source code.
-                  </li>
-                  <li>
-                    Hands-on implementation experience across authentication,
-                    payments, dashboards, real-time sync, and CRUD-heavy
-                    workflows.
-                  </li>
-                  <li>
-                    Comfortable owning features from UI development through API
-                    design, database integration, and production deployment.
-                  </li>
-                </ul>
-              </div>
-            </section>
-
-            <section aria-labelledby="languages-title">
-              <h2 class="section-heading" id="languages-title">Languages</h2>
-
-              <div class="mini-card">
-                <p class="mini-copy">
-                  Mongolian (Native), English (Professional working proficiency)
-                </p>
-              </div>
-            </section>
-          </aside>
-        </main>
+      <!-- OTHER -->
+      <div class="section">
+        <div class="section-title">Other</div>
+        <hr />
+        <div class="other-text">
+          <strong>Languages:</strong> Bilingual English &amp; Dutch
+          &nbsp;•&nbsp; <strong>Open Source:</strong> Contributor to 2 public
+          GitHub repositories (500+ combined stars) &nbsp;•&nbsp;
+          <strong>Certifications:</strong> Meta Front-End Developer Certificate
+          (2024), AWS Cloud Practitioner (in progress) &nbsp;•&nbsp;
+          <strong>Interests:</strong> Competitive programming, hackathons,
+          hiking
+        </div>
       </div>
     </div>
   </body>
