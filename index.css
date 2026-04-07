@@ -143,6 +143,8 @@ ul.bullets li {
   font-size: 12px;
   line-height: 1.8;
   color: var(--ink);
+  display: flex;
+  flex-direction: column;
 }
 .skills-text .highlight {
   color: var(--green);
