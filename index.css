@@ -24,7 +24,8 @@ body {
 
 .page {
   background: var(--bg);
-  width: 794px;
+  width: 100%;
+  max-width: 794px;
   padding: 52px 58px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.12);
 }
@@ -40,12 +41,14 @@ body {
 .name-block {
   min-width: 160px;
 }
+
 .name-block h1 {
   font-family: "DM Serif Display", serif;
   font-size: 36px;
   color: var(--green);
   line-height: 1.1;
 }
+
 .name-block .title {
   font-size: 11px;
   font-weight: 600;
@@ -63,10 +66,12 @@ body {
   color: var(--muted);
   margin-top: 4px;
 }
+
 .contact-grid a {
   color: var(--muted);
   text-decoration: none;
 }
+
 .contact-grid a:hover {
   color: var(--green);
 }
@@ -90,6 +95,7 @@ hr {
 .section {
   margin-bottom: 20px;
 }
+
 .section-title {
   font-size: 11.5px;
   font-weight: 600;
@@ -106,6 +112,7 @@ hr {
   flex-direction: column;
   gap: 6px;
 }
+
 .entry-header {
   display: flex;
   justify-content: space-between;
@@ -113,16 +120,20 @@ hr {
   flex-wrap: wrap;
   gap: 4px;
 }
+
 .entry-left {
   font-size: 12.5px;
 }
+
 .entry-left strong {
   font-weight: 600;
   color: var(--ink);
 }
+
 .entry-left .role {
   color: var(--ink);
 }
+
 .entry-right {
   font-style: italic;
   font-size: 12px;
@@ -135,6 +146,7 @@ ul.bullets {
   padding-left: 18px;
   margin-top: 5px;
 }
+
 ul.bullets li {
   font-size: 12px;
   line-height: 1.65;
@@ -149,13 +161,16 @@ ul.bullets li {
   display: flex;
   flex-direction: column;
 }
+
 .skills-text .highlight {
   color: var(--green);
   font-weight: 500;
 }
+
 .skills-text .faded {
   color: var(--muted);
 }
+
 .skills-text .note {
   font-style: italic;
   color: var(--muted);
@@ -165,6 +180,7 @@ ul.bullets li {
 .edu-entry {
   margin-bottom: 10px;
 }
+
 .edu-note {
   font-size: 11.5px;
   color: var(--muted);
@@ -184,12 +200,137 @@ ul.bullets li {
   flex-direction: column;
 }
 
+/* TABLET */
+@media (max-width: 900px) {
+  body {
+    padding: 24px 12px;
+  }
+
+  .page {
+    padding: 36px 30px;
+  }
+
+  .header {
+    gap: 24px;
+  }
+
+  .name-block h1 {
+    font-size: 32px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  body {
+    padding: 0;
+    background: white;
+  }
+
+  .page {
+    max-width: 100%;
+    padding: 24px 18px;
+    box-shadow: none;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .name-block {
+    min-width: unset;
+  }
+
+  .name-block h1 {
+    font-size: 28px;
+  }
+
+  .name-block .title {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .summary {
+    font-size: 11.5px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 11px;
+  }
+
+  .entry-left,
+  .entry-right {
+    font-size: 11.5px;
+  }
+
+  .entry-right {
+    white-space: normal;
+  }
+
+  ul.bullets {
+    padding-left: 16px;
+  }
+
+  ul.bullets li {
+    font-size: 11.5px;
+    line-height: 1.6;
+  }
+
+  .skills-text,
+  .other-text {
+    font-size: 11.5px;
+    line-height: 1.7;
+  }
+
+  .edu-note {
+    font-size: 11px;
+    line-height: 1.55;
+  }
+}
+
+/* VERY SMALL MOBILE */
+@media (max-width: 400px) {
+  .page {
+    padding: 18px 14px;
+  }
+
+  .name-block h1 {
+    font-size: 24px;
+  }
+
+  .summary,
+  .skills-text,
+  .other-text,
+  ul.bullets li,
+  .entry-left,
+  .entry-right,
+  .edu-note {
+    font-size: 11px;
+  }
+}
+
 @media print {
   body {
     background: white;
     padding: 0;
   }
+
   .page {
     box-shadow: none;
+    max-width: 100%;
+    width: 100%;
   }
 }
